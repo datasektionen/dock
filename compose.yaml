@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    configs:
+      - source: dock.yaml
+        target: /config.yaml
+    ports:
+      - 9001:9001
+      - 9002:9002
+      - 9003:9003
+
+configs:
+  dock.yaml:
+    content: |
+      rfinger:
+        default: /home/vekby/Documents/code/ior/dock/missing.svg
+        pictures: # pictures must be absolute paths to that file on your computer
+          turetek:
+            regular: /home/vekby/Downloads/1060829700.pdf
+            small: /home/vekby/Downloads/1374531-1379226899.jpg
+      ston:
+      spam:
