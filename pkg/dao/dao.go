@@ -14,7 +14,7 @@ type Dao struct {
 
 type db struct {
 	Rfinger Rfinger `yaml:"rfinger"`
-	// Ston    []User    `yaml:"ston"`
+	Ston    Ston    `yaml:"ston"`
 	// Spam    Hive      `yaml:"spam"`
 }
 
@@ -26,6 +26,20 @@ type Rfinger struct {
 type Picture struct {
 	Regular string `yaml:"regular"`
 	Small   string `yaml:"small"`
+}
+
+type Ston struct {
+	Nollan []Nollan `yaml:"nollan"`
+}
+
+type Nollan struct {
+	Id        int    `yaml:"id"`
+	Name      string `yaml:"name"`
+	Street    string `yaml:"street"`
+	Zip       string `yaml:"zip"`
+	City      string `yaml:"city"`
+	Longitude string `yaml:"longitude"`
+	Latitude  string `yaml:"latitude"`
 }
 
 func New(cfg *config.Config) *Dao {
@@ -43,4 +57,3 @@ func New(cfg *config.Config) *Dao {
 		Db: db,
 	}
 }
-

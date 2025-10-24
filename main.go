@@ -11,7 +11,7 @@ import (
 	"github.com/datasektionen/dock/pkg/dao"
 	"github.com/datasektionen/dock/pkg/rfinger"
 	// "github.com/datasektionen/dock/pkg/spam"
-	// "github.com/datasektionen/dock/pkg/ston"
+	"github.com/datasektionen/dock/pkg/ston"
 	"golang.org/x/term"
 )
 
@@ -22,6 +22,7 @@ func main() {
 	dao := dao.New(cfg)
 
 	go rfinger.Listen(cfg, dao)
+	go ston.Listen(cfg, dao)
 
 	if term.IsTerminal(int(os.Stdin.Fd())) {
 		stdin := bufio.NewReader(os.Stdin)

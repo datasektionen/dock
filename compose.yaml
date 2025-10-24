@@ -19,4 +19,20 @@ configs:
             regular: /home/vekby/Downloads/1060829700.pdf
             small: /home/vekby/Downloads/1374531-1379226899.jpg
       ston:
+        nollan:
+          - id: 0
+            name: Ture Teknolog
+            street: Jerkas väg 1
+            zip: 134 32
+            city: Gustavsberg
+          - id: 1
+            name: Diana Datalog
+            street: Osquars backe 21
+            zip: 114 28
+            city: Stockholm
+          - id: 2
+            name: Martin Median
+            street: Drottning Kristinas väg 15
+            zip: 114 28
+            city: Stockholm
       spam:
