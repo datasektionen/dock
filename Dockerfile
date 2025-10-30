@@ -14,6 +14,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /dock
 FROM alpine:3.19
 
 COPY --from=build /dock /dock
+COPY missing.svg missing.svg
 
 CMD ["/dock"]
 

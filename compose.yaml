@@ -13,11 +13,20 @@ configs:
   dock.yaml:
     content: |
       rfinger:
-        default: /home/vekby/Documents/code/ior/dock/missing.svg
-        pictures: # pictures must be absolute paths to that file on your computer
+        default: http://localhost:9003
+        pictures:
           turetek:
-            regular: /home/vekby/Downloads/1060829700.pdf
-            small: /home/vekby/Downloads/1374531-1379226899.jpg
+            regular: https://thskth.se/wp-content/uploads/2023/06/ths-logo-bla-01-300x294-1.png
+            small: https://thskth.se/wp-content/uploads/2019/12/ths-logo-svart-01.png
+          diadat:
+            regular: https://dsekt-assets.s3.amazonaws.com/logotyp
+            small: https://dsekt-assets.s3.amazonaws.com/logotyp
+          marmed:
+            regular: https://storage.googleapis.com/medieteknik-static/static/logos/logo.webp
+            small: https://storage.googleapis.com/medieteknik-static/static/logos/logo.webp
+          karklu:
+            regular: https://dsekt-assets.s3.amazonaws.com/website/namnder/dkm.svg
+            small: https://dsekt-assets.s3.amazonaws.com/website/namnder/dkm.svg
       ston:
         nollan:
           - id: 0

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/datasektionen/dock/pkg/config"
@@ -15,6 +16,17 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 	db := dao.Db.Rfinger
 
 	h := http.NewServeMux()
+
+	h.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		content, err := os.ReadFile("missing.svg")
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		w.Header().Set("Content-Type", "image/svg+xml")
+		w.Write(content)
+	});
 
 	h.HandleFunc("GET /api/{kthid}", func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")
