@@ -55,7 +55,7 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 		fmt.Fprint(w, path)
 	})
 
-	h.HandleFunc("GET /api/batch", func(w http.ResponseWriter, r *http.Request) {
+	h.HandleFunc("POST /api/batch", func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")
 		if !strings.Contains(authHeader, "Bearer") {
 			w.WriteHeader(http.StatusUnauthorized)
