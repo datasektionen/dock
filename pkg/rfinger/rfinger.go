@@ -52,7 +52,7 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			path = db.Default
 		}
 
-		fmt.Printf("got picture for %s as %s", id, path);
+		fmt.Printf("got picture for %s as %s\n", id, path);
 
 		fmt.Fprint(w, path)
 	})
@@ -90,7 +90,7 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			}
 		}
 
-		fmt.Printf("got batch of pictures");
+		fmt.Printf("got batch of pictures for %d users\n", len(resp));
 
 		json.NewEncoder(w).Encode(resp)
 	})
@@ -111,7 +111,7 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			return
 		}
 
-		fmt.Printf("set picture for %s", id);
+		fmt.Printf("set picture for %s\n", id);
 
 		w.WriteHeader(http.StatusOK)
 	})
@@ -132,7 +132,7 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			return
 		}
 
-		fmt.Printf("set original picture for %s", id);
+		fmt.Printf("set original picture for %s\n", id);
 
 		w.WriteHeader(http.StatusOK)
 	})
