@@ -52,6 +52,8 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			path = db.Default
 		}
 
+		fmt.Printf("got picture for %s as %s", id, path);
+
 		fmt.Fprint(w, path)
 	})
 
@@ -88,6 +90,8 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			}
 		}
 
+		fmt.Printf("got batch of pictures");
+
 		json.NewEncoder(w).Encode(resp)
 	})
 
@@ -98,12 +102,16 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			return
 		}
 
+		id := r.PathValue("kthid")
+
 		image := r.FormValue("image")
 
 		if image == "" {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+
+		fmt.Printf("set picture for %s", id);
 
 		w.WriteHeader(http.StatusOK)
 	})
@@ -115,12 +123,16 @@ func Listen(cfg *config.Config, dao *dao.Dao) {
 			return
 		}
 
+		id := r.PathValue("kthid")
+
 		image := r.FormValue("image")
 
 		if image == "" {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+
+		fmt.Printf("set original picture for %s", id);
 
 		w.WriteHeader(http.StatusOK)
 	})
